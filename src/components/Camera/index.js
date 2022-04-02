@@ -5,7 +5,7 @@ import * as MediaLibrary from 'expo-media-library';
 import * as Location from 'expo-location';
 import * as FileSystem from 'expo-file-system';
 
-export default function ComponentCamera() {
+export default function ComponentCamera(props) {
 
   const ref = useRef(null);
   const [hasPermission, setHasPermission] = useState(null);
@@ -64,7 +64,10 @@ export default function ComponentCamera() {
       setCaptured(data.uri);
       setOpen(true);
       await MediaLibrary.saveToLibraryAsync(data.uri);
-      console.log(data)
+      console.log('Diretório da foto: ', data.uri)
+      if (props.matricula != null && props.codigo != null && props.situacao != null) {
+        console.log(`Informações vindas do Form: ${props.matricula}_${props.codigo}_${props.situacao}`) 
+      }
     }
   }
 
