@@ -64,6 +64,7 @@ export default function ComponentCamera(props) {
       setCaptured(data.uri);
       setOpen(true);
       await MediaLibrary.saveToLibraryAsync(data.uri);
+      console.log('Localização: ', location)
       console.log('Diretório da foto: ', data.uri)
       if (props.matricula != null && props.codigo != null && props.situacao != null) {
         console.log(`Informações vindas do Form: ${props.matricula}_${props.codigo}_${props.situacao}`) 
